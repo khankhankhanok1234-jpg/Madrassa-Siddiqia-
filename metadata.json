@@ -1,0 +1,8 @@
+{
+  "name": "Madrasa Siddiqiya",
+  "description": "Quran Madrasa Management System for Madrasa Siddiqiya, Badaber Peshawar",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
