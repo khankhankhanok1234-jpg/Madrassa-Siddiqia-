@@ -70,10 +70,11 @@ fun AttendanceScreen(
     // Map studentId -> Status ("Present", "Absent", "Late", "Leave")
     val attendanceMap = remember { mutableStateMapOf<Long, String>() }
 
-    // Initialize unselected students as Present
-    classStudents.forEach { student ->
-        if (!attendanceMap.containsKey(student.id)) {
-            attendanceMap[student.id] = "Present"
+    androidx.compose.runtime.LaunchedEffect(selectedClass, classStudents) {
+        classStudents.forEach { student ->
+            if (!attendanceMap.containsKey(student.id)) {
+                attendanceMap[student.id] = "Present"
+            }
         }
     }
 
@@ -188,6 +189,7 @@ fun AttendanceScreen(
                                 }
 
                                 Surface(
+                                    onClick = { attendanceMap[student.id] = status },
                                     shape = RoundedCornerShape(8.dp),
                                     color = if (isSelected) color else color.copy(alpha = 0.12f),
                                     modifier = Modifier
